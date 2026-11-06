@@ -217,6 +217,21 @@
       © 2026 Rebecca Krummel
     </footer>
   </div>
+  <script>
+    // Builds the email link in the browser so the raw address never appears in the HTML.
+    document.querySelectorAll(".email").forEach(function (el) {
+      var addr = ["rk.works.digital", "gmail.com"].join("@");
+      var a = el;
+      if (el.tagName !== "A") {
+        a = document.createElement("a");
+        a.style.margin = "0";
+        a.style.display = "inline";
+        el.replaceWith(a);
+      }
+      a.href = "mailto:" + addr;
+      a.textContent = addr;
+    });
+  </script>
 </body>
 
 </html>
